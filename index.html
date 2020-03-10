@@ -9,6 +9,19 @@
   <body>
     <header>
       <h1>Video info</h1>
+      Note: This application uses node
+      <script>
+        document.write(process.versions.node)
+      </script>
+      , Chrome
+      <script>
+        document.write(process.versions.chrome)
+      </script>
+      , and Electron
+      <script>
+        document.write(process.versions.electron)
+      </script>
+      .
     </header>
     <form>
       <div class="input-field">
@@ -43,7 +56,7 @@
         document.querySelector(
           '#result'
         ).innerHTML = `Video is ${duration} seconds`
-      });
+      })
     </script>
   </body>
 </html>
