@@ -1,0 +1,15 @@
+{
+  "name": "video-info",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Sieg C. Balona <siegblink@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "8.1.0",
+    "fluent-ffmpeg": "2.1.2"
+  }
+}

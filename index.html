@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Video info</title>
+  </head>
+  <body>
+    <header>
+      <h1>Video info</h1>
+    </header>
+    <form>
+      <div class="input-field">
+        <label>Select a video</label>
+        <input type="file" accept="video/*" />
+      </div>
+      <button type="submit">Get info</button>
+    </form>
+    <div class="output">
+      <h1 id="result"></h1>
+    </div>
+
+    <script module>
+      const electron = require('electron')
+      const { ipcRenderer } = electron
+
+      document
+        .querySelector('form')
+        .addEventListener('submit', function(event) {
+          event.preventDefault()
+          if (!document.querySelector('input').files[0]) {
+            document.querySelector(
+              '#result'
+            ).innerHTML = `Video file must not be empty`
+            return
+          }
+          const { path } = document.querySelector('input').files[0]
+          ipcRenderer.send('video:submit', path)
+        })
+
+      ipcRenderer.on('video:metadata', (event, duration) => {
+        document.querySelector(
+          '#result'
+        ).innerHTML = `Video is ${duration} seconds`
+      });
+    </script>
+  </body>
+</html>
