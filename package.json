@@ -9,7 +9,7 @@
   "author": "Sieg C. Balona <siegblink@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "electron": "8.1.0",
+    "electron": "9.4.0",
     "fluent-ffmpeg": "2.1.2"
   }
 }
